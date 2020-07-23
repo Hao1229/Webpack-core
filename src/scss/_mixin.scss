@@ -1,0 +1,5 @@
+@mixin lessThan($deviceWidth){
+  @media screen and (max-width:#{$deviceWidth}){
+    @content;
+  }
+}
