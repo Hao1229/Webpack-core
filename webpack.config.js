@@ -16,6 +16,10 @@ module.exports = {
       new TerserPlugin()
     ]
   },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true
+  },
   module: {
     rules: [
       {
