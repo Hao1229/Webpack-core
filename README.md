@@ -19,5 +19,18 @@
 
 其他比較偏向 webpack 的自動化套件就不一一列出，詳細部分可以到 `package.json` 了解。
 
+## pug html template
+這邊推薦一種 html 的開發寫法，透過 pug 即使我們不使用框架，也能做類似框架中 template、component 的撰寫：
+執行 `npm i -D pug html-loader pug-html-loader` 安裝，在 `webpack.config.js` 中設定：
+```js
+module: {
+  rules: [{
+      test: /\.pug$/,
+      use: ['html-loader','pug-html-loader']
+  }]
+}
+```
+plugin 的 HtmlWebpackPlugin 記得將要輸出的檔案副檔名改成 `.pug`。
+
 ## 補充
 若對 webpack 有疑慮的地方可以參考此篇[文章](https://hao1229.github.io/2020/07/22/webpackNote/#more)。
