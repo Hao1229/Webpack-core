@@ -25,12 +25,16 @@
 ```js
 module: {
   rules: [{
-      test: /\.pug$/,
-      use: ['html-loader','pug-html-loader']
+    test: /\.pug$/,
+    use: ['html-loader','pug-html-loader']
   }]
 }
 ```
 plugin 的 HtmlWebpackPlugin 記得將要輸出的檔案副檔名改成 `.pug`。
+
+## 注意
+目前此核心，尚未針對 html 的 img tag 做處理，引用圖片部分會較為麻煩。
+這邊建議若要使用此核心做開發，圖片部分用 css `background-image` 來處理會是較佳的選擇。
 
 ## 補充
 若對 webpack 有疑慮的地方可以參考此篇[文章](https://hao1229.github.io/2020/07/22/webpackNote/#more)。
