@@ -42,7 +42,12 @@ module.exports = {
             }
           },
           'css-loader',
-          'sass-loader'
+          {
+            loader: 'sass-loader',
+            options: {
+              additionalData: '@import "./src/scss/_variable.scss";'
+            }
+          }
         ]
       },
       {
