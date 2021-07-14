@@ -19,6 +19,8 @@
 
 其他比較偏向 webpack 的自動化套件就不一一列出，詳細部分可以到 `package.json` 了解。
 
+* jQuery：此專案已安裝 jQuery 方便開發，若不需要移除即可。
+
 ## pug html template
 這邊推薦一種 html 的開發寫法，透過 pug 即使我們不使用框架，也能做類似框架中 template、component 的撰寫：
 執行 `npm i -D pug html-loader pug-html-loader` 安裝，在 `webpack.config.js` 中設定：
