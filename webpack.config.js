@@ -3,9 +3,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const webpack = require('webpack')
 
 module.exports = {
-  entry: './index.js',
+  entry: {
+    index: path.resolve(__dirname, './index.js')
+  },
   output: {
     filename: 'js/[name].[hash].js',
     path: path.resolve(__dirname, 'dist')
@@ -45,7 +48,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              additionalData: '@import "./src/scss/_variable.scss";'
+              additionalData: '@import "./src/scss/_variable.scss"; @import "./src/scss/_mixin.scss";'
             }
           }
         ]
@@ -73,8 +76,12 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      filename: 'index.html'
+      filename: 'index.html',
+      chunks: ['index']
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new webpack.ProvidePlugin({
+      $: 'jquery'
+    })
   ]
 }
